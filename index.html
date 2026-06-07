@@ -2,495 +2,143 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Roblox Dev | UI & Low‑Poly Building Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RubiBlox Studios · UI Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0b0e16;
-            color: #edf2ff;
-            scroll-behavior: smooth;
-        }
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a1f2e;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #6d4aff;
-            border-radius: 10px;
-        }
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 1.8rem;
-        }
-        header {
-            position: sticky;
-            top: 0;
-            backdrop-filter: blur(14px);
-            background: rgba(11, 14, 22, 0.9);
-            border-bottom: 1px solid rgba(109, 74, 255, 0.3);
-            z-index: 100;
-            padding: 1rem 0;
-        }
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #bc7aff, #4f8eff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .logo i {
-            background: none;
-            color: #a36eff;
-            margin-right: 5px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            color: #cbd5f0;
-            transition: 0.2s;
-        }
-        .nav-links a:hover {
-            color: #bc7aff;
-        }
-        .btn {
-            background: linear-gradient(105deg, #7c3aed, #3b6eff);
-            padding: 0.7rem 1.8rem;
-            border-radius: 40px;
-            font-weight: 600;
-            text-decoration: none;
-            color: white;
-            display: inline-block;
-            transition: 0.2s;
-            box-shadow: 0 5px 15px rgba(108, 71, 255, 0.3);
-            border: none;
-            cursor: pointer;
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #7c3aed;
-            box-shadow: none;
-        }
-        .btn-outline:hover {
-            background: #7c3aed;
-            transform: translateY(-2px);
-        }
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 22px rgba(108, 71, 255, 0.4);
-        }
-        .hero {
-            padding: 3rem 0 2rem;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-        }
-        .gradient {
-            background: linear-gradient(120deg, #c084fc, #5c9eff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .hero p {
-            max-width: 700px;
-            margin: 1rem auto;
-            color: #a6b4d4;
-        }
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-        .stat-card {
-            background: #121622;
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            border: 1px solid #2d374b;
-        }
-        .stat-card span {
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: #bc7aff;
-        }
-        .section {
-            padding: 4rem 0;
-            border-bottom: 1px solid rgba(66, 85, 120, 0.25);
-        }
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .section-icon {
-            font-size: 2.2rem;
-            background: #1e293b;
-            width: 70px;
-            height: 70px;
-            line-height: 70px;
-            border-radius: 30px;
-            display: inline-block;
-            margin-bottom: 1rem;
-            color: #bc7aff;
-        }
-        .section-header h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-        }
-        .section-sub {
-            color: #8d9ac0;
-            margin-top: 0.5rem;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-        .card {
-            background: #121622;
-            border-radius: 28px;
-            overflow: hidden;
-            transition: transform 0.25s ease, box-shadow 0.25s;
-            border: 1px solid #262e42;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #7c3aed;
-            box-shadow: 0 20px 30px -12px #00000066;
-        }
-        .card-img {
-            width: 100%;
-            height: 220px;
-            background: #0e111b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.3s;
-        }
-        .card-info {
-            padding: 1.4rem;
-        }
-        .card-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.4rem;
-        }
-        .card-info p {
-            color: #b7c2e0;
-            font-size: 0.85rem;
-            margin: 0.5rem 0;
-        }
-        .tag-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 0.7rem 0;
-        }
-        .tag {
-            background: #1e2a3a;
-            padding: 0.2rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: #c5d0f0;
-        }
-        .info-panel {
-            background: linear-gradient(145deg, #10131f, #0a0d16);
-            border-radius: 2rem;
-            padding: 1.8rem;
-            margin: 2rem 0;
-            border-left: 5px solid #7c3aed;
-        }
-        .info-panel h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-        }
-        .info-panel ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .info-panel li {
-            margin: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .info-panel i {
-            color: #bc7aff;
-            width: 24px;
-        }
-        .connect {
-            background: #0f1320;
-            border-radius: 48px;
-            padding: 2rem;
-            text-align: center;
-            margin: 2rem 0 3rem;
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 1.5rem 0;
-        }
-        .social-links a {
-            color: #bcc7ec;
-            font-size: 2rem;
-            transition: 0.2s;
-        }
-        .social-links a:hover {
-            color: #bc7aff;
-            transform: translateY(-3px);
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid #1e293b;
-            font-size: 0.8rem;
-            color: #6f7c9b;
-        }
-        .helper-note {
-            font-size: 0.7rem;
-            background: #1e293b;
-            display: inline-block;
-            padding: 0.2rem 1rem;
-            border-radius: 20px;
-            margin-top: 1.2rem;
-            color: #9ab3e0;
-        }
-        @media (max-width: 700px) {
-            .container {
-                padding: 0 1rem;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .nav-links {
-                gap: 1rem;
-            }
-            .grid {
-                grid-template-columns: 1fr;
-            }
-            .stats {
-                gap: 1rem;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; line-height: 1.5; padding: 2rem 1rem; }
+        .container { max-width: 1280px; margin: 0 auto; }
+        .top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(59, 130, 246, 0.2); }
+        .name { font-size: 2rem; font-weight: 600; letter-spacing: -0.5px; background: linear-gradient(135deg, #3b82f6, #60a5fa); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .nav { display: flex; gap: 2rem; }
+        .nav a { color: #b0b0b0; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: 0.2s; letter-spacing: 0.3px; }
+        .nav a:hover { color: #3b82f6; }
+        section { margin-bottom: 4rem; }
+        .section-title { font-size: 1.8rem; font-weight: 500; margin-bottom: 2rem; padding-left: 1rem; border-left: 4px solid #3b82f6; background: linear-gradient(135deg, #f5f5f5, #b0b0b0); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
+        .section-title i { background: none; -webkit-background-clip: unset; color: #3b82f6; margin-right: 0.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
+        .card { background: #0c0c0c; border-radius: 28px; overflow: hidden; border: 1px solid #1a1a1a; transition: all 0.3s; box-shadow: 0 10px 20px -10px rgba(0,0,0,0.5); }
+        .card:hover { border-color: #3b82f6; transform: translateY(-5px); box-shadow: 0 24px 36px -12px rgba(59,130,246,0.15); }
+        .card-img { width: 100%; height: 210px; background: #101010; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
+        .card:hover .card-img img { transform: scale(1.03); }
+        .card-content { padding: 1.4rem; }
+        .card-content h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.4rem; background: linear-gradient(135deg, #f0f0f0, #c0c0c0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .card-content p { font-size: 0.85rem; color: #aaa; margin: 0.5rem 0; line-height: 1.4; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+        .tag { background: #151515; padding: 0.2rem 0.8rem; border-radius: 40px; font-size: 0.7rem; font-weight: 500; color: #3b82f6; border: 1px solid #2a2a2a; }
+        .commission { background: #0a0a0a; border-radius: 32px; border: 1px solid #1c1c1c; padding: 1.8rem; margin: 2rem 0; }
+        .commission h3 { font-size: 1.5rem; font-weight: 500; margin-bottom: 1rem; background: linear-gradient(135deg, #3b82f6, #60a5fa); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .commission ul { list-style: none; }
+        .commission li { margin: 0.7rem 0; display: flex; align-items: center; gap: 12px; color: #c0c0c0; font-size: 0.9rem; }
+        .commission i { width: 26px; color: #3b82f6; font-size: 1rem; }
+        .contact-area { background: #0a0a0a; border-radius: 32px; border: 1px solid #1c1c1c; padding: 2rem; text-align: center; margin: 2rem 0; }
+        .contact-area h3 { font-size: 1.6rem; font-weight: 500; margin: 0.5rem 0; background: linear-gradient(135deg, #f0f0f0, #b0b0b0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .discord-icon-only { display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a1a1a, #111); border: 1px solid #3b82f6; border-radius: 60px; padding: 0.8rem 1.2rem; margin-top: 1rem; text-decoration: none; transition: 0.2s; }
+        .discord-icon-only i { font-size: 1.8rem; color: #3b82f6; }
+        .discord-icon-only:hover { background: linear-gradient(135deg, #3b82f6, #60a5fa); border-color: #3b82f6; transform: translateY(-2px); }
+        .discord-icon-only:hover i { color: #050505; }
+        .contact-note { font-size: 0.85rem; color: #888; margin-top: 1rem; }
+        footer { text-align: center; padding-top: 2rem; border-top: 1px solid #151515; font-size: 0.75rem; color: #6a6a6a; }
+        @media (max-width: 750px) { body { padding: 1rem; } .top { flex-direction: column; align-items: flex-start; } .grid { gap: 1.5rem; } }
     </style>
 </head>
 <body>
-
-<header>
-    <div class="container nav-container">
-        <div class="logo">
-            <i class="fas fa-cube"></i> RubiBlox Studios
+<div class="container">
+    <div class="top">
+        <div class="name">RubiBlox Studios</div>
+        <div class="nav">
+            <a href="#ui">UI</a>
+            <a href="#contact">Contact</a>
         </div>
-        <ul class="nav-links">
-            <li><a href="#ui">UI Design</a></li>
-            <li><a href="#building">Building</a></li>
-            <li><a href="#contact">Contact</a></li>
+    </div>
+
+    <div class="commission">
+        <h3>✦ commissions open</h3>
+        <ul>
+            <li><i class="fas fa-coins"></i> minimum <strong>5k Robux</strong> · negotiable</li>
+            <li><i class="fas fa-paintbrush"></i> UI/UX systems · custom HUDs · responsive design</li>
+            <li><i class="fas fa-clock"></i> 1+ year UI · fast turnaround</li>
         </ul>
-        <a href="#contact" class="btn btn-outline" style="padding: 0.5rem 1.2rem;">Commission</a>
-    </div>
-</header>
-
-<main>
-    <div class="container hero">
-        <h1>Roblox Creator · <span class="gradient">UI & Low‑Poly Building</span></h1>
-        <p>Specializing in <strong>stud style / low poly</strong> environments and sleek, responsive UI systems. 2+ years building · 1+ year UI design.</p>
-        <div class="stats">
-            <div class="stat-card"><span>2+ yrs</span><br>Building</div>
-            <div class="stat-card"><span>1+ yr</span><br>UI/UX</div>
-            <div class="stat-card"><span>Stud/LowPoly</span><br>Style</div>
-        </div>
-        <div class="info-panel">
-            <h3><i class="fas fa-robux"></i> Commission info</h3>
-            <ul>
-                <li><i class="fas fa-coins"></i> Minimum commission: <strong>10k Robux</strong> (negotiable based on complexity & scale)</li>
-                <li><i class="fas fa-paintbrush"></i> Specialties: Stud‑style builds, low‑poly props, modular UI kits, custom HUDs</li>
-                <li><i class="fas fa-clock"></i> Fast turnaround · Full scripting + design available</li>
-            </ul>
-        </div>
     </div>
 
-    <!-- UI SECTION (your 3 screenshots) -->
-    <section id="ui" class="section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-icon"><i class="fas fa-window-maximize"></i></div>
-                <h2>🎨 UI Design Portfolio</h2>
-                <div class="section-sub">Clean, functional interfaces — Shop, Inventory, Gift systems & more</div>
-            </div>
-            <div class="grid">
-                <!-- Shop UI -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="Screenshot 2026-06-05 155851.png" alt="Shop UI" onerror="this.src='https://placehold.co/600x400/1a1f2e/a97cff?text=Shop+UI+(replace+file)'">
-                    </div>
-                    <div class="card-info">
-                        <h3>🛒 Premium Shop UI</h3>
-                        <p>Currency packages with pricing tiers, smooth purchase flow & visual hierarchy. Robux integrations ready.</p>
-                        <div class="tag-group">
-                            <span class="tag">Scaleable</span>
-                            <span class="tag">Promo animations</span>
-                            <span class="tag">Mobile/PC</span>
-                        </div>
-                    </div>
+    <section id="ui">
+        <h2 class="section-title"><i class="fas fa-palette"></i> UI design</h2>
+        <div class="grid">
+            <!-- Shop UI -->
+            <div class="card">
+                <div class="card-img">
+                    <!-- 🔁 REPLACE WITH YOUR DIRECT IMAGE URL (e.g., https://i.ibb.co/xxx.png) -->
+                    <img src="https://placehold.co/600x400/151515/3b82f6?text=Shop+UI" alt="Shop UI">
                 </div>
-                <!-- Inventory UI -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="Screenshot 2026-06-05 160123.png" alt="Inventory UI" onerror="this.src='https://placehold.co/600x400/1a1f2e/a97cff?text=Inventory+UI+(replace+file)'">
-                    </div>
-                    <div class="card-info">
-                        <h3>📦 Inventory System</h3>
-                        <p>Grid layout, search bar, capacity tracker, equip/unequip mechanics. Clean item cards.</p>
-                        <div class="tag-group">
-                            <span class="tag">DataStore</span>
-                            <span class="tag">Drag&Drop</span>
-                            <span class="tag">Filtering</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Gift Menu UI -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="Screenshot 2026-06-05 160139.png" alt="Gift Menu UI" onerror="this.src='https://placehold.co/600x400/1a1f2e/a97cff?text=Gift+Menu+(replace+file)'">
-                    </div>
-                    <div class="card-info">
-                        <h3>🎁 Gift Menu / User Search</h3>
-                        <p>Send gifts to friends with user ID lookup, multi‑recipient layout & confirmation modals.</p>
-                        <div class="tag-group">
-                            <span class="tag">Friend system</span>
-                            <span class="tag">Modal UI</span>
-                            <span class="tag">Real-time search</span>
-                        </div>
-                    </div>
+                <div class="card-content">
+                    <h3>Shop · Currency Packages</h3>
+                    <p>Clean pricing tiers, robux integration, smooth purchase flow.</p>
+                    <div class="tags"><span class="tag">scalable</span><span class="tag">mobile/pc</span></div>
                 </div>
             </div>
-    <!-- BUILDING SECTION (your 2 images from Catbox) -->
-    <section id="building" class="section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-icon"><i class="fas fa-drafting-compass"></i></div>
-                <h2>🏗️ Building & Environments</h2>
-                <div class="section-sub">Stud‑style architecture · Low‑poly worlds · Detailed props</div>
+            <!-- Inventory UI -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://placehold.co/600x400/151515/3b82f6?text=Inventory+UI" alt="Inventory UI">
+                </div>
+                <div class="card-content">
+                    <h3>Inventory System</h3>
+                    <p>Grid layout, search bar, capacity tracker, equip/unequip.</p>
+                    <div class="tags"><span class="tag">datastore</span><span class="tag">drag&drop</span></div>
+                </div>
             </div>
-            <div class="grid">
-                <!-- Your Building Image 1 -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://files.catbox.moe/4ow901.png" alt="Low poly build 1">
-                    </div>
-                    <div class="card-info">
-                        <h3>Competitive Combat Map</h3>
-                        <p>Stud‑style cottages, market stalls, foliage — cozy environment optimized for performance.</p>
-                        <div class="tag-group">
-                            <span class="tag">Low poly</span>
-                            <span class="tag">Stud style</span>
-                            <span class="tag">Terrain blend</span>
-                        </div>
-                    </div>
+            <!-- Gift UI -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://placehold.co/600x400/151515/3b82f6?text=Gift+UI" alt="Gift UI">
                 </div>
-                <!-- Your Building Image 2 -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://files.catbox.moe/yfb5sg.png" alt="Low poly build 2">
-                    </div>
-                    <div class="card-info">
-                        <h3>Crossroads(Combat/Roleplay)</h3>
-                        <p>Modular castle walls, towers, interior halls — fully walkable and optimized LOD.</p>
-                        <div class="tag-group">
-                            <span class="tag">Modular</span>
-                            <span class="tag">Stud detailing</span>
-                            <span class="tag">Collision ready</span>
-                        </div>
-                    </div>
+                <div class="card-content">
+                    <h3>Gift Menu · User Search</h3>
+                    <p>Send gifts, user id lookup, multi‑recipient layout.</p>
+                    <div class="tags"><span class="tag">friend system</span><span class="tag">modal ui</span></div>
                 </div>
-                <!-- Extra placeholder (you can replace/remove) -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://placehold.co/600x400/1a2332/6d8eff?text=More+Builds+Coming+Soon" alt="More builds">
-                    </div>
-                    <div class="card-info">
-                        <h3>✨ More Projects</h3>
-                        <p>Additional low‑poly environments, props, and interactive scenes available upon request.</p>
-                        <div class="tag-group">
-                            <span class="tag">Custom work</span>
-                            <span class="tag">Fast iteration</span>
-                        </div>
-                    </div>
+            </div>
+            <!-- Settings UI -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://placehold.co/600x400/151515/3b82f6?text=Settings+UI" alt="Settings UI">
+                </div>
+                <div class="card-content">
+                    <h3>Settings Hub</h3>
+                    <p>Audio, graphics, keybinds — full player preferences panel.</p>
+                    <div class="tags"><span class="tag">toggles</span><span class="tag">sliders</span><span class="tag">mobile/pc</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section (Discord only, no email, no Twitter/GitHub) -->
-    <div class="container" id="contact">
-        <div class="connect">
-            <i class="fab fa-discord" style="font-size: 2.5rem; color:#bc7aff;"></i>
-            <h3 style="margin: 0.5rem 0;">Let's build something great</h3>
-            <p>Commissions open for UI design, low‑poly building, and full game systems.<br>Starting at <strong>10k Robux</strong> — price varies with complexity & scale.</p>
-            <div class="social-links">
-                <!-- Only Discord and optional Roblox (you can remove Roblox if you want) -->
-                <a href="https://discord.com/users/1355857057873531021" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-roblox"></i></a>
-            </div>
-            <p style="font-size: 0.9rem; margin-top: 1rem;">👉 <strong>Discord:</strong> @nova_curiosity (click the icon above)</p>
-            <p style="font-size: 0.75rem; margin-top: 15px; opacity: 0.7;">Replace the Roblox link with your profile if desired.</p>
-        </div>
+    <div id="contact" class="contact-area">
+        <i class="fab fa-discord" style="font-size: 2.5rem; color: #3b82f6;"></i>
+        <h3>let's work</h3>
+        <a href="https://discord.com/users/1355857057873531021" target="_blank" class="discord-icon-only">
+            <i class="fab fa-discord"></i>
+        </a>
+        <p class="contact-note">click the icon to DM me on Discord</p>
     </div>
-</main>
 
-<footer>
-    <p>© 2026 · Roblox UI & Low‑Poly Building Portfolio · 2+ years building, 1+ year UI expertise</p>
-    <p><i class="fas fa-cube"></i> Specialized in stud‑style & low‑poly aesthetics</p>
-</footer>
-
+    <footer>
+        <p>RubiBlox Studios · UI design · 1+ year UI expertise</p>
+    </footer>
+</div>
 <script>
-    // Smooth scroll with offset
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('.nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === "#" || targetId === "") return;
-            const target = document.querySelector(targetId);
-            if (target) {
+            const href = this.getAttribute('href');
+            if (href && href !== '#') {
                 e.preventDefault();
-                const offset = 70;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.scrollY - offset;
-                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                const target = document.querySelector(href);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
-    console.log('✅ Portfolio ready. UI images need correct filenames in same folder.');
 </script>
 </body>
 </html>
